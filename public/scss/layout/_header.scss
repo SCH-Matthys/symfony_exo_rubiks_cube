@@ -7,13 +7,13 @@ header{
         align-items: center ;
         padding: 32px;
         background-color: var.$primary-color;
-        border-bottom: solid 4px var.$primary-color;
+        border-bottom: solid 2px black;
         ul{
             display: flex;
             li{
                 padding: 8px 32px;
                 .active{
-                    text-decoration: underline 2px var.$secondary-color;
+                    color: var.$detail-color;
                 }
                 a{
                     font-size: 20px;
@@ -21,10 +21,10 @@ header{
                     letter-spacing: 1px;
                     font-weight: 600;
                     cursor: pointer;
-                    transition: 0.4s;
+                    transition: 0.2s;
                     text-transform: uppercase;
                     &:hover{
-                        text-decoration: underline 2px var.$secondary-color;
+                        color: var.$detail-color;
                     }
                 }
             }

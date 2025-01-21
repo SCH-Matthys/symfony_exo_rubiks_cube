@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use App\Entity\Comment;
 use App\Entity\Cubes;
-use App\Entity\User;
 use App\Form\CommentType;
 use App\Form\CubeType;
 use App\Repository\CategoryRepository;
@@ -14,7 +13,6 @@ use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Bundle\SecurityBundle\Security as SecurityBundleSecurity;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -47,7 +45,7 @@ final class GalleryController extends AbstractController
 
         if($form->isSubmitted() && $form->isValid()){
 
-            $user=$security->getUser();
+            $user = $security->getUser();
 
             $cube->setUser($user);
 
