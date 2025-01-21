@@ -1,0 +1,39 @@
+@use "./../abstract/variable" as var;
+
+header{
+    nav{
+        display: flex;
+        justify-content: space-between;
+        align-items: center ;
+        padding: 32px;
+        background-color: var.$primary-color;
+        border-bottom: solid 4px var.$primary-color;
+        ul{
+            display: flex;
+            li{
+                padding: 8px 32px;
+                .active{
+                    text-decoration: underline 2px var.$secondary-color;
+                }
+                a{
+                    font-size: 20px;
+                    color: white;
+                    letter-spacing: 1px;
+                    font-weight: 600;
+                    cursor: pointer;
+                    transition: 0.4s;
+                    text-transform: uppercase;
+                    &:hover{
+                        text-decoration: underline 2px var.$secondary-color;
+                    }
+                }
+            }
+        }
+        a{
+            img{
+                width: 50px;
+                height: 50px;
+            }
+        }
+    }
+}

@@ -1,0 +1,321 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+  text-decoration: none;
+}
+
+@font-face {
+  font-family: FiraCode;
+  src: url(../../fonts/FiraCode/FiraCode-Regular.ttf);
+}
+body {
+  font-family: FiraCode;
+}
+
+main {
+  background-color: #f7f8fa;
+}
+
+header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 32px;
+  background-color: #0b2149;
+  border-bottom: solid 4px #0b2149;
+}
+header nav ul {
+  display: flex;
+}
+header nav ul li {
+  padding: 8px 32px;
+}
+header nav ul li .active {
+  text-decoration: underline 2px #6a8fd7;
+}
+header nav ul li a {
+  font-size: 20px;
+  color: white;
+  letter-spacing: 1px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.4s;
+  text-transform: uppercase;
+}
+header nav ul li a:hover {
+  text-decoration: underline 2px #6a8fd7;
+}
+header nav a img {
+  width: 50px;
+  height: 50px;
+}
+
+#mainIndex {
+  padding: 64px;
+  font-family: FiraCode;
+}
+#mainIndex #sectionProfil h1 {
+  background-color: #0b2149;
+  color: white;
+  padding: 16px;
+  border: solid 2px black;
+  margin-bottom: 16px;
+  font-family: FiraCode;
+}
+#mainIndex #sectionProfil > div {
+  display: flex;
+  align-items: center;
+  padding: 0px 64px;
+}
+#mainIndex #sectionProfil > div img {
+  width: 250px;
+  height: 250px;
+  border: solid 4px #0b2149;
+  margin-right: 16px;
+}
+#mainIndex #sectionProfil > div div {
+  display: flex;
+  flex-direction: column;
+}
+#mainIndex #sectionProfil > div div p {
+  font-size: 18px;
+  color: #717378;
+}
+#mainIndex #sectionProfil > div div p strong {
+  color: #0b2149;
+}
+#mainIndex #sectionProfil > div div ul {
+  padding: 8px 0px;
+}
+#mainIndex #sectionProfil > div div ul li {
+  padding-left: 16px;
+  font-size: 18px;
+}
+#mainIndex #sectionProfil > div div > div {
+  display: none;
+}
+#mainIndex #sectionLast h2 {
+  background-color: #0b2149;
+  color: white;
+  padding: 16px;
+  border: solid 2px black;
+  margin: 16px 0px;
+}
+#mainIndex #sectionLast article {
+  display: flex;
+  margin: 0px 64px 16px;
+}
+#mainIndex #sectionLast article img {
+  width: 300px;
+  border: solid 4px #0b2149;
+}
+#mainIndex #sectionLast article > div {
+  padding: 0px 16px;
+  width: 100%;
+}
+#mainIndex #sectionLast article > div h3 {
+  font-size: 20px;
+  background-color: #6a8fd7;
+  color: white;
+  padding: 16px;
+  border: solid 2px #0b2149;
+  margin-bottom: 16px;
+  font-family: FiraCode;
+}
+#mainIndex #sectionLast article > div p {
+  text-align: start;
+  font-size: 16px;
+  padding-bottom: 6px;
+  color: #717378;
+}
+
+#mainGallery {
+  padding: 64px;
+}
+#mainGallery h1 {
+  background-color: #0b2149;
+  font-size: 24px;
+  color: white;
+  padding: 16px;
+  border: solid 2px black;
+  margin-bottom: 16px;
+  font-family: FiraCode;
+}
+#mainGallery p {
+  text-align: center;
+  font-size: 18px;
+  padding-bottom: 16px;
+  color: #717378;
+}
+#mainGallery > a {
+  margin-left: calc(50% - 128px);
+  padding: 8px 16px;
+  border: solid 2px #0b2149;
+  border-radius: 64px;
+  color: white;
+  background-color: #1865f2;
+  cursor: pointer;
+  transition: 0.3s;
+}
+#mainGallery > a:hover {
+  background-color: white;
+  color: #0b2149;
+  border: solid 2px #0b2149;
+}
+#mainGallery #sectionCubes {
+  margin-top: 32px;
+  padding: 0px 64px;
+}
+#mainGallery #sectionCubes a article {
+  display: flex;
+  border: solid 4px #f7f8fa;
+  padding: 8px;
+  transition: 0.2s;
+}
+#mainGallery #sectionCubes a article:hover {
+  border: solid 4px #6a8fd7;
+  background-color: white;
+}
+#mainGallery #sectionCubes a article img {
+  width: 300px;
+  border: solid 4px #0b2149;
+}
+#mainGallery #sectionCubes a article > div {
+  padding: 0px 16px;
+  width: 100%;
+  position: relative;
+}
+#mainGallery #sectionCubes a article > div h2 {
+  font-size: 20px;
+  background-color: #6a8fd7;
+  color: white;
+  padding: 16px;
+  border: solid 2px #0b2149;
+  margin-bottom: 16px;
+  font-family: FiraCode;
+}
+#mainGallery #sectionCubes a article > div p {
+  text-align: start;
+  color: #717378;
+  font-size: 16px;
+  padding-bottom: 6px;
+}
+#mainGallery #sectionCubes a article > div p:nth-of-type(2) {
+  position: absolute;
+  left: 16px;
+  bottom: 0px;
+}
+#mainGallery #sectionCubes > div {
+  display: flex;
+  margin: 16px;
+}
+#mainGallery #sectionCubes > div a {
+  padding: 8px 16px;
+  margin-right: 16px;
+  border: solid 2px #0b2149;
+  border-radius: 64px;
+  color: white;
+  background-color: #1865f2;
+  cursor: pointer;
+  transition: 0.3s;
+}
+#mainGallery #sectionCubes > div a:hover {
+  background-color: white;
+  color: #0b2149;
+  border: solid 2px #0b2149;
+}
+#mainGallery #sectionCubes > div form #delete {
+  padding: 8px 16px;
+  border: solid 2px #0b2149;
+  border-radius: 64px;
+  color: #0b2149;
+  background-color: white;
+  cursor: pointer;
+  font-family: FiraCode;
+  font-size: 16px;
+  transition: 0.3s;
+}
+#mainGallery #sectionCubes > div form #delete:hover {
+  background-color: rgb(226, 66, 66);
+  color: white;
+  border: solid 2px #b70e0e;
+}
+
+#mainGalleryCube {
+  padding: 64px;
+}
+#mainGalleryCube article h1 {
+  background-color: #6a8fd7;
+  font-size: 24px;
+  color: white;
+  padding: 16px;
+  border: solid 2px #0b2149;
+  margin-bottom: 16px;
+  font-family: FiraCode;
+}
+#mainGalleryCube article p {
+  padding: 0px 64px 16px;
+  text-align: center;
+  color: #717378;
+  font-size: 16px;
+}
+#mainGalleryCube article > div {
+  padding: 0px 64px;
+  display: flex;
+}
+#mainGalleryCube article > div img {
+  width: 300px;
+  border: solid 4px #0b2149;
+}
+#mainGalleryCube article > div > div {
+  padding: 0px 16px;
+  width: 100%;
+  position: relative;
+}
+#mainGalleryCube article > div > div p {
+  padding: 0px 8px 16px;
+  text-align: start;
+  color: #717378;
+  font-size: 16px;
+  padding-bottom: 6px;
+}
+#mainGalleryCube article > div > div p:nth-of-type(4) {
+  position: absolute;
+  left: 16px;
+  bottom: 0px;
+}
+#mainGalleryCube article > div > div ul {
+  display: flex;
+}
+#mainGalleryCube article > div > div ul li {
+  padding-left: 16px;
+  color: #717378;
+}
+#mainGalleryCube #sectionComment {
+  padding-top: 64px;
+}
+#mainGalleryCube #sectionComment h2 {
+  background-color: #6a8fd7;
+  font-size: 24px;
+  color: white;
+  padding: 16px;
+  border: solid 2px #0b2149;
+  margin-bottom: 16px;
+  font-family: FiraCode;
+}
+
+form {
+  padding: 64px;
+  text-align: start;
+}
+form h1 {
+  background-color: #0b2149;
+  color: white;
+  padding: 16px;
+  border: solid 2px black;
+  margin-bottom: 16px;
+  font-family: FiraCode;
+}
+
+/*# sourceMappingURL=style.css.map */

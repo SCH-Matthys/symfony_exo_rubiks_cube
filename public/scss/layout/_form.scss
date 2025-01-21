@@ -1,0 +1,14 @@
+@use "./../abstract/variable" as var;
+
+form{
+    padding: 64px;
+    text-align: start;
+    h1{
+        background-color: var.$primary-color;
+        color: white;
+        padding: 16px;
+        border: solid 2px black;
+        margin-bottom: 16px;
+        font-family: FiraCode;
+    }
+}

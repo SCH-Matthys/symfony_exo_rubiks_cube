@@ -1,0 +1,13 @@
+
+@use "../abstract/variable" as var;
+@use "../base/typo";
+
+body{
+    font-family: FiraCode;
+}
+
+main{
+    // background-image: url("https://www.transparenttextures.com/patterns/shattered-dark.png");
+    // opacity: 0.5;
+    background-color: #f7f8fa;
+}

@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ cubes.name }}{% endblock %}
+
+{% block main %}
+    <main id="mainGalleryCube">
+        <article>
+            <h1>Cube : {{ cubes.name }}</h1>
+            <p>{{ cubes.description}}</p>
+            <div>
+                <img src="{{ asset("uploads/images/" ~ cubes.imageName  )}}" alt="image/photo du cube {{ cubes.name }}">
+                <div>
+                    <p>Format : {{ cubes.format}}</p>
+                    <p>Catégorie : {{ cubes.category.name}}</p>
+                    <p>Prix estimé : {{ cubes.price}}€</p>
+                    <ul>
+                        <p>Couleurs :</p>
+                        {% for couleurs in cubes.colors %}
+                            <li>{{ couleurs.name }}</li>
+                        {% endfor %}
+                    </ul>
+                    <p>Cube ajouté par : {{ cubes.user.username}}</p>
+                </div>
+            </div>
+        </article>
+        <section id="sectionComment">
+            <h2>Vos avis </h2>
+        </section>
+    </main>
+{% endblock %}

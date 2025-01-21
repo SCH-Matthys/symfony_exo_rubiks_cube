@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block main %}
+    <main id="mainIndex">
+        <section id="sectionProfil">
+            <h1>Bienvenue sur mon site !</h1>
+            <div>
+                <img src="{{ asset("images/jean_Cube.png") }}" alt="Avatar Jean Cube">
+                <div>
+                    <p>Je m'appelle <strong>Jean Cube</strong> et comme vous pouvez le deviner, je suis un passionné de <strong>Rubik's Cube</strong>. <br> Depuis mon tout premier cube, j'ai été fasciné par les défis qu'ils représentent, mais aussi par leur beauté et leur variété. Au fil des années, ma passion s'est transformée en une véritable collection, regroupant des modèles classiques, rares, et même des créations personnalisées.</p>
+                    <div>
+                        <ul>
+                            <p>Ce site est né de mon envie de partager cette passion avec d'autres amateurs de Rubik's Cube. Ici, vous pourrez :</p>
+                            <li>Découvrir ma collection personnelle de Rubik's Cube.</li>    
+                            <li>Partager vos propres trésors avec la communauté.</li>    
+                            <li>Échanger des astuces, des techniques de résolution, et discuter de l'univers infini du Rubik's Cube.</li>    
+                        </ul>
+                        <ul>
+                            <p>Je vous invite à explorer les différentes sections du site :</p>   
+                            <li>Accueil : Pour en apprendre plus sur moi et l'origine de ma passion.</li>    
+                            <li>Galerie : Un espace où vous pourrez admirer des Rubik's Cube de toutes formes et tailles, partagés par des passionnés du monde entier.</li>    
+                            <li>Contact : Si vous avez des questions, des suggestions, ou simplement envie de discuter, n'hésitez pas à me contacter.</li>    
+                        </ul>
+                        <p>Je suis ravi de vous accueillir ici et j'espère que ce site deviendra un lieu de rencontre pour tous les amoureux de Rubik's Cube. Ensemble, faisons tourner le monde des cubes !</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="sectionLast">
+            <h2>Vos dernieres trouvailles :</h2>
+            {% for cube in lastestCubeById %}
+                <article>
+                    <img src="{{ asset("uploads/images/" ~ cube.imageName  )}}" alt="image/photo du cube {{ cube.name }}">
+                    <div>
+                        <h3>{{ cube.name }}</h3>
+                        <p>{{ cube.description}}</p>
+                        <p>Format : {{ cube.format}}</p>
+                        <p>Catégorie :{{ cube.category.name}}</p>
+                        <p>Trouvé par : {{ cube.user.username }}</p>
+                    </div>
+                </article>
+            {% endfor %}
+        </section>
+    </main>
+{% endblock %}

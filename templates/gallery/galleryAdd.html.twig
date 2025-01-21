@@ -1,0 +1,80 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {% if app.request.attributes.get('_route') == 'app_galleryAdd' %}
+        Ajouter une trouvaille
+    {% elseif app.request.attributes.get('_route') == 'app_galleryEdit' %}
+        Modifier une trouvaille
+    {% endif %}
+ {% endblock %}
+
+{% block main %}
+    {% if app.request.attributes.get('_route') == 'app_galleryAdd' %}
+        <main id="mainGalleryAdd">
+        <h1>Ajouter une trouvaille à la collection</h1>
+        <p>Remplisez les données demandées puis validez pour ajouter votre trouvaille à la collection.</p>
+        {% if is_granted("ROLE_USER") %}
+            {{ form_start(formCube) }}
+                {{ form_row(formCube.name, {
+                    "label": "Nom de votre cube :",
+                })}}
+                {{ form_row(formCube.category, {
+                    "label": "La catégorie de votre cube :",
+                })}}
+                {{ form_row(formCube.format, {
+                    "label": "Le format de votre cube (ex: 3*3, 2*2*4 etc...) :",
+                })}}
+                {{ form_row(formCube.description, {
+                    "label": "Décrivez votre cube, sa particularité, son histoire etc... :",
+                })}}
+                {{ form_row(formCube.price, {
+                    "label": "Estimez un prix (laissez vide si besoin) :",
+                })}}
+                {{ form_row(formCube.imageFile, {
+                    "label": "Image/Photo de votre cube :",
+                })}}
+                {{ form_row(formCube.colors, {
+                    "label": "Choisisez la ou les couleurs de votre cube :",
+                })}}
+                <br>
+                <button>Ajouer à la collection</button>
+            {{ form_end(formCube)}}
+        {% else %}
+            <p>Pour avoir accès à cette fonctionnalité vous devez être connecté : <a href=" {{path("app_login")}} ">Connectez vous</a></p>
+        {% endif %}
+    {% elseif app.request.attributes.get('_route') == 'app_galleryEdit' %}
+        <main id="mainGalleryEdit">
+            <h1>Modifier une de vos trouvaille</h1>
+            <p>Vous vous etes trompé quelque par ? Modifiez les informations necessaires avant de valider.</p>
+            {% if is_granted("ROLE_USER") %}
+                {{ form_start(formCube) }}
+                    {{ form_row(formCube.name, {
+                        "label": "Nom de votre cube :",
+                    })}}
+                    {{ form_row(formCube.category, {
+                        "label": "La catégorie de votre cube :",
+                    })}}
+                    {{ form_row(formCube.format, {
+                        "label": "Le format de votre cube (ex: 3*3, 2*2*4 etc...) :",
+                    })}}
+                    {{ form_row(formCube.description, {
+                        "label": "Décrivez votre cube, sa particularité, son histoire etc... :",
+                    })}}
+                    {{ form_row(formCube.price, {
+                        "label": "Estimez un prix (laissez vide si besoin) :",
+                    })}}
+                    {{ form_row(formCube.imageFile, {
+                        "label": "Image/Photo de votre cube :",
+                    })}}
+                    {{ form_row(formCube.colors, {
+                        "label": "Choisisez la ou les couleurs de votre cube :",
+                    })}}
+                    <br>
+                    <button>Valier la modification</button>
+                {{ form_end(formCube)}}
+            {% else %}
+                <p>Pour avoir accès à cette fonctionnalité vous devez être connecté : <a href=" {{path("app_login")}} ">Connectez vous</a></p>
+            {% endif %}
+        {% endif %}
+    </main>
+{% endblock %}

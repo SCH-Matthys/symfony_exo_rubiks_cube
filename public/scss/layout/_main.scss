@@ -1,0 +1,274 @@
+@use "./../abstract/variable" as var;
+@use "./../base/typo";
+
+// PAGE INDEX /////////////////////////////////////////////////////////////
+
+#mainIndex{
+    padding: 64px;
+    font-family: FiraCode;
+   #sectionProfil{
+        h1{
+            background-color: var.$primary-color;
+            color: white;
+            padding: 16px;
+            border: solid 2px black;
+            margin-bottom: 16px;
+            font-family: FiraCode;
+        }
+        >div{
+            display: flex;
+            align-items: center;
+            padding: 0px 64px;
+            img{
+                width: 250px;
+                height: 250px;
+                border: solid 4px var.$primary-color;
+                // border-radius: 4px;
+                margin-right: 16px;
+            }
+            div{
+                display: flex;
+                flex-direction: column;
+                p{
+                    font-size: 18px;
+                    color: var.$text-color;
+                    strong{
+                        color: var.$primary-color;
+                    }
+                }
+                ul{
+                    padding: 8px 0px;
+                    li{
+                        padding-left: 16px;
+                        font-size: 18px;
+                    }
+                }
+                >div{
+                    display: none;
+                }
+            }
+        } 
+    }
+
+    #sectionLast{
+        h2{
+            background-color: var.$primary-color;
+            color: white;
+            padding: 16px;
+            border: solid 2px black;
+            margin: 16px 0px;
+        }
+        article{
+            display: flex;
+            margin: 0px 64px 16px;
+            img{
+                width: 300px;
+                border: solid 4px var.$primary-color;
+            }
+            >div{
+                padding: 0px 16px;
+                width: 100%;
+                h3{
+                    font-size: 20px;
+                    background-color: var.$secondary-color;
+                    color: white;
+                    padding: 16px;
+                    border: solid 2px var.$primary-color;
+                    margin-bottom: 16px;
+                    font-family: FiraCode;
+                }
+                p{
+                    text-align: start;
+                    font-size: 16px;
+                    padding-bottom: 6px;
+                    color: var.$text-color;
+                }
+            }
+        }
+    }
+}
+
+// PAGE GALLERY /////////////////////////////////////////////////////////////
+
+#mainGallery{
+    padding: 64px;
+    h1{
+        background-color: var.$primary-color;
+        font-size: 24px;
+        color: white;
+        padding: 16px;
+        border: solid 2px black;
+        margin-bottom: 16px;
+        font-family: FiraCode;
+    }
+    p{
+        text-align: center;
+        font-size: 18px;
+        padding-bottom: 16px;
+        color: var.$text-color;
+    }
+    >a{
+        margin-left: calc(50% - 128px);
+        padding: 8px 16px;
+        border: solid 2px var.$primary-color;
+        border-radius: 64px;
+        color: white;
+        background-color: var.$detail-color;
+        cursor: pointer;
+        transition: 0.3s;
+        &:hover{
+            background-color: white;
+            color: var.$primary-color;
+            border: solid 2px var.$primary-color;
+        }
+    }
+    #sectionCubes{
+        margin-top: 32px;
+        padding: 0px 64px;
+        a{
+            article{
+                display: flex;
+                border: solid 4px #f7f8fa;
+                padding: 8px;
+                transition: 0.2s;
+                &:hover{
+                    border: solid 4px var.$secondary-color;
+                    background-color: white;
+                }
+                img{
+                    width: 300px;
+                    border: solid 4px var.$primary-color;
+                }
+                >div{
+                    padding: 0px 16px;
+                    width: 100%;
+                    position: relative;
+                    h2{
+                        font-size: 20px;
+                        background-color: var.$secondary-color;
+                        color: white;
+                        padding: 16px;
+                        border: solid 2px var.$primary-color;
+                        margin-bottom: 16px;
+                        font-family: FiraCode;
+                    }
+                    p{
+                        text-align: start;
+                        color: var.$text-color;
+                        font-size: 16px;
+                        padding-bottom: 6px;
+                    }
+                    p:nth-of-type(2){
+                        position: absolute;
+                        left: 16px;
+                        bottom: 0px;
+                    }
+                }
+            }
+        }
+        >div{
+            display: flex;
+            margin: 16px;
+            a{
+                padding: 8px 16px;
+                margin-right: 16px;
+                border: solid 2px var.$primary-color;
+                border-radius: 64px;
+                color: white;
+                background-color: var.$detail-color;
+                cursor: pointer;
+                transition: 0.3s;
+                &:hover{
+                    background-color: white;
+                    color: var.$primary-color;
+                    border: solid 2px var.$primary-color;
+                }
+            }
+            form{
+                #delete{
+                    padding: 8px 16px;
+                    border: solid 2px var.$primary-color;
+                    border-radius: 64px;
+                    color: var.$primary-color;
+                    background-color: white;
+                    cursor: pointer;
+                    font-family: FiraCode;
+                    font-size: 16px;
+                    transition: 0.3s;
+                    &:hover{
+                        background-color: rgb(226, 66, 66);
+                        color: white;
+                        border: solid 2px #b70e0e;
+                    }
+                }
+            }
+        }
+    }
+}
+
+#mainGalleryCube{
+    padding: 64px;
+    article{
+        h1{
+            background-color: var.$secondary-color;
+            font-size: 24px;
+            color: white;
+            padding: 16px;
+            border: solid 2px var.$primary-color;
+            margin-bottom: 16px;
+            font-family: FiraCode;
+        }
+        p{
+            padding: 0px 64px 16px;
+            text-align: center;
+            color: var.$text-color;
+            font-size: 16px;
+        }
+        >div{
+            padding: 0px 64px;
+            display: flex;
+            img{
+                width: 300px;
+                border: solid 4px var.$primary-color;
+            }
+            >div{
+                padding: 0px 16px;
+                width: 100%;
+                position: relative;
+                p{
+                    padding: 0px 8px 16px;
+                    text-align: start;
+                    color: var.$text-color;
+                    font-size: 16px;
+                    padding-bottom: 6px;
+                }
+                p:nth-of-type(4){
+                    position: absolute;
+                    left: 16px;
+                    bottom: 0px;
+                }
+                ul{
+                    // padding-left: 8px;
+                    display: flex;
+                    li{
+                        padding-left: 16px;
+                        color: var.$text-color;
+                    }
+                }
+            }
+        }
+    }
+
+    #sectionComment{
+        padding-top: 64px;
+        h2{
+            background-color: var.$secondary-color;
+            font-size: 24px;
+            color: white;
+            padding: 16px;
+            border: solid 2px var.$primary-color;
+            margin-bottom: 16px;
+            font-family: FiraCode;
+        }
+    }
+}

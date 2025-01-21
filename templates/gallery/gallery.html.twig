@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Les Cubes{% endblock %}
+
+{% block main %}
+    <main id="mainGallery">
+        <h1>Tous les cubes</h1>
+        <p>Ici vous pouvez voir les cubes les plus beaux et originaux trouvés par les passionnés.</p>
+        {% if is_granted("ROLE_USER") %}
+            <a href="{{ path("app_galleryAdd") }}">Ajouter un cube à la collection</a>
+        {% else %}
+            <p>Pour aussi pouvoir partager vos trouvailles : <a href=" {{path("app_login")}} ">Connectez vous</a></p>
+        {% endif %}
+        <section id="sectionCubes">
+            {% for cube in cubes %}
+                <a href="{{ path("app_galleryCube",{'id' : cube.id }) }}">
+                    <article>
+                        <img src="{{ asset("uploads/images/" ~ cube.imageName  )}}" alt="image/photo du cube {{ cube.name }}">
+                        <div>
+                            <h2>{{ cube.name }}</h2>
+                            <p>{{ cube.description}}</p>
+                            <p>Trouvé par : {{ cube.user.username }}</p>
+                        </div>
+                    </article>
+                    {# {{ dump(app.user) }} #}
+                </a>
+                {% if app.user and app.user.id == cube.user.id %}
+                    <div>
+                        <a href="{{ path("app_galleryEdit",{'id' : cube.id }) }}">Modifier</a>
+                        <form method="POST" onsubmit="return confirm('Voulez vous vraiment supprimer ce cube de la collection ?')" action="{{ path('app_galleryDelete',{'id' : cube.id })}}">
+                            <input type="hidden" name="_method" value="delete">
+                            <input type="hidden" name="_token" value="{{ csrf_token('SUP' ~ cube.id)}}">
+                            <input id="delete" type="submit" value="Supprimer">
+                        </form>
+                    </div>
+                    {% endif %}
+                {% endfor %}
+        </section>
+    </main>
+{% endblock %}
