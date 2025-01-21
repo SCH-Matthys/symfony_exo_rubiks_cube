@@ -15,10 +15,10 @@ class CommentType extends AbstractType
     {
         $builder
             ->add('content')
-            ->add('cubes', EntityType::class, [
-                'class' => Cubes::class,
-                'choice_label' => 'id',
-            ])
+            // ->add('cubes', EntityType::class, [
+            //     'class' => Cubes::class,
+            //     'choice_label' => 'id',
+            // ])
         ;
     }
 

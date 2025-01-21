@@ -2,18 +2,24 @@
 
 namespace App\Controller;
 
+use App\Entity\Comment;
 use App\Entity\Cubes;
 use App\Entity\User;
+use App\Form\CommentType;
 use App\Form\CubeType;
 use App\Repository\CategoryRepository;
 use App\Repository\ColorsRepository;
 use App\Repository\CubesRepository;
+use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Bundle\SecurityBundle\Security as SecurityBundleSecurity;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Security\Core\Security;
+use Symfony\Component\Validator\Constraints\Date;
 
 final class GalleryController extends AbstractController
 {
@@ -92,10 +98,37 @@ final class GalleryController extends AbstractController
     }
 
     #[Route('/gallery/cube/{id}', name: 'app_galleryCube')]
-    public function cube( Cubes $cubes ): Response
+    public function cube( Cubes $cubes, Request $request, SecurityBundleSecurity $security, EntityManagerInterface $entityManagerInterface): Response
     {
+        $comment = new Comment();
+
+        $form = $this->createForm(CommentType::class, $comment);
+
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()){
+
+            $user = $security->getUser();
+            $cubeId = $cubes->getId();
+            $date = new DateTime();
+            // $cube = $cubes->getId();
+
+            $comment->setUser($user)->setDate($date)->setCubes($cubeId);
+
+
+
+            $entityManagerInterface->persist($comment);
+
+            $entityManagerInterface->flush();
+
+            $this->addFlash("success", "Votre commentaire à bien été posté.");
+
+            return $this->redirectToRoute("app_galleryCube");
+        }
+
         return $this->render('gallery/galleryCube.html.twig', [
             "cubes" => $cubes,
+            "formComment" => $form,
         ]);
     }
 }
