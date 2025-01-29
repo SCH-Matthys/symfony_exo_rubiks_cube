@@ -26,15 +26,19 @@
         </article>
         <section id="sectionComment">
             <h2>Vos avis </h2>
-                {{ form_start(formComment) }}
-                    {{ form_row(formComment.content, {
-                        "label": "Postez voter commentaire :",
-                    })}}
-                    <button>Poster</button>
-                {{ form_end(formComment) }}
+            {{ form_start(formComment) }}
+                {{ form_row(formComment.content, {
+                    "label": "Postez voter commentaire :",
+                })}}
+                <button>Poster</button>
+            {{ form_end(formComment) }}
                 <ul>
-                    {# {{ for comment in cubes.comment}} #}
-                        {# <li>{{ cubes.comment.content }}</li> #}
+                    {% for comment in comments %}
+                        <li>
+                            <p>{{ comment.content }}</p>
+                            <p>Par : {{ comment.user.username }}</p>
+                        </li>
+                    {% endfor %}
                 </ul>
         </section>
     </main>

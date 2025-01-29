@@ -23,6 +23,7 @@
                 <button class="btn btn-lg btn-primary" type="submit">Connexion</button>
             </form>
             <p>Vous n'avez pas de compte ? <a href="{{ path("app_register") }}">Créer un compte</a></p>
+            <p>Mot de passe oublié ? : <a href="{{ path("app_forgot_password") }}">Cliquez ici</a></p>
         </main>
     {% endif %}
 
@@ -44,7 +45,6 @@
                     <br>
                     <button>Créer mon compte</button>
                 {{ form_end(formUser)}}
-
             </form>
             <p>Vous avez déjà un compte ? <a href="{{ path("app_login") }}">Connectez vous</a></p>
         </main>

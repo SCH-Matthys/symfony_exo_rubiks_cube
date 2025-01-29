@@ -31,6 +31,17 @@ class CubesRepository extends ServiceEntityRepository
            ;
        }
 
+       public function filterByCategoryId($value)
+       {
+            return $this->createQueryBuilder('c')
+            ->join('c.category','cate')
+            ->andWhere('cate.id = :value')
+            ->setParameter('value', $value)
+            ->getQuery()
+            ->getResult()
+            ;
+       }
+
     //    public function findOneBySomeField($value): ?Cubes
     //    {
     //        return $this->createQueryBuilder('c')

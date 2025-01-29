@@ -4,6 +4,11 @@
 
 {% block main %}
     <main id="mainContact">
-    
+        {{ form_start(contactForm)}}
+            {{ form_row(contactForm.email, {"label": "Entrez votre email : ",})}}
+            {{ form_row(contactForm.content, {"label": "Ecrivez votre message : ",})}}
+            <br>
+            <button>Envoyer votre message</button>
+        {{ form_end(contactForm)}}
     </main>
 {% endblock %}

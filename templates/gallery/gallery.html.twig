@@ -11,8 +11,22 @@
         {% else %}
             <p>Pour aussi pouvoir partager vos trouvailles : <a href=" {{path("app_login")}} ">Connectez vous</a></p>
         {% endif %}
+        <div id="filters">
+            <h2>Filtres : </h2>
+            <p data-filter="" class="filter-button">None</p>
+            <p data-filter="1x1" class="filter-button">1x1</p>
+            <p data-filter="2x2" class="filter-button">2x2</p>
+            <p data-filter="3x3" class="filter-button">3x3</p>
+            <p data-filter="4x4" class="filter-button">4x4</p>
+            <p data-filter="5x5" class="filter-button">5x5</p>
+            <p data-filter="6x6" class="filter-button">6x6</p>
+            <p data-filter="7x7" class="filter-button">7x7</p>
+            <p data-filter="8x8" class="filter-button">8x8</p>
+            <p data-filter="9" class="filter-button">Autres</p>
+        </div>
         <section id="sectionCubes">
-            {% for cube in cubes %}
+            {% include "partial/cubes.html.twig" %}
+            {# {% for cube in cubes %}
                 <a href="{{ path("app_galleryCube",{'id' : cube.id }) }}">
                     <article>
                         <img src="{{ asset("uploads/images/" ~ cube.imageName  )}}" alt="image/photo du cube {{ cube.name }}">
@@ -22,7 +36,6 @@
                             <p>Trouvé par : {{ cube.user.username }}</p>
                         </div>
                     </article>
-                    {# {{ dump(app.user) }} #}
                 </a>
                 {% if app.user and app.user.id == cube.user.id %}
                     <div>
@@ -34,7 +47,7 @@
                         </form>
                     </div>
                     {% endif %}
-                {% endfor %}
+                {% endfor %} #}
         </section>
     </main>
 {% endblock %}

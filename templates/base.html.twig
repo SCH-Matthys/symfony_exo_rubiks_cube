@@ -36,4 +36,28 @@
         {% block footer %}
         {% endblock %}
     </body>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            console.log("souf");
+            const buttons = document.querySelectorAll(".filter-button");
+            const resultContainer = document.getElementById("sectionCubes");
+
+            buttons.forEach(button => {
+                button.addEventListener("click", () => {
+                    const filterBtn = button.getAttribute("data-filter");
+                    console.log("clic!");
+
+                    fetch("/filter-page?filterGetValue=${filterBtn}", {
+                        method: "GET",
+                        headers: { "X-Requested-With": "XMLHttpRequest" }
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        resultContainer.innerHTML = data.html;
+                    })
+                    .catch(error => console.error("Error:", error));
+                });
+            });
+        });
+    </script>
 </html>
